@@ -1,9 +1,16 @@
 import PropTypes from 'prop-types'
+import Button from './Button'
 
 const Header = ({title}) => {
+
+    const Onclick = () =>{
+        console.log("I'm Clicked");
+    }
+
   return (
-    <header>
+    <header className='header'>
         <h1>{title}</h1>
+        <Button color="green" text="Add" Onclick={Onclick}></Button>
     </header>
   )
 }
@@ -15,7 +22,7 @@ Header.propTypes = {
     title: PropTypes.string.isRequired
 }
 
-// CSS styling in JS
+// CSS styling in JS 
 // const headerStyling = {
 //     color: "red",
 //     backgroundColor: "black"
