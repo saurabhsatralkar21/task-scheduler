@@ -19,12 +19,19 @@ function App() {
     reminder: true,
     },
     {
-        id: 3,
+    id: 3,
     text: "Watch Movie",
     day: "Saturday 7th at 2:00pm",
     reminder: false,
     } 
 ])
+
+// Add Task
+const addTask = (task) => {
+ const id = Math.floor(Math.random() * 10000) + 1
+ const newTask = { id, ...task }
+ setTasks([...tasks, newTask])
+}
 
 // Delete Task
 const deleteTask = (id) => {
@@ -40,6 +47,7 @@ const toggleReminder = (id) => {
   return (
     <div className="container">
       <Header></Header>
+      <AddTask onAdd={addTask}></AddTask>
       {tasks.length > 0 ? <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder}></Tasks> : 'No tasks to show'}
     </div>
   );
